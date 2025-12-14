@@ -71,3 +71,10 @@
   cursor: pointer;
   font-size: 18px;
 }
+footer img {
+  width: 100%;
+  display: block;
+}
+html, body {
+  height: 100%;
+}
