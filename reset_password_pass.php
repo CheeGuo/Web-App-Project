@@ -11,10 +11,10 @@
     <div class="login-title">
       <h2 style="text-align:left">Reset Password</h2>
     </div>
-    <label class = "registeredPassword"> Enter registered e-mail </label>
+    <label class = "registeredPassword"> Enter new password </label>
     <form name="reset_password" method="POST"> 
-    <input type="email" name ="email" placeholder="Password">
-    <input class="button_global"type="submit" name="submit_email" value="Send Verification"> <! should be connect to email >
+    <input type="password" name ="password" placeholder="Password">
+    <input class="button_global" type="submit" name="submit_password" value="Confirm"> <! should be connect to email >
     </form>
   </div>
 </div>
