@@ -5,6 +5,18 @@
   font-family: Arial, sans-serif;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= HEADER ================= */
+
 .top-header {
   height: 90px;
   background: #dfffee;
@@ -71,14 +83,13 @@
   cursor: pointer;
   font-size: 18px;
 }
-footer img {
-  width: 100%;
-  display: block;
-}
 
-.login{
+/* ================= LOGIN PAGE ================= */
+
+.login {
   background-color: antiquewhite;
 }
+
 body.login {
   min-height: 100vh;
   display: flex;
@@ -98,7 +109,7 @@ body.login {
   background: #e8ffe8;
   padding: 35px 30px;
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   text-align: center;
 }
 
@@ -146,11 +157,57 @@ body.login {
   background: #ffe44d;
 }
 
-.registeredPassword{
-  text-align:left; width: 100%; display: block; color: #555; margin-bottom: 5px;
+.registeredPassword {
+  text-align: left;
+  width: 100%;
+  display: block;
+  color: #555;
+  margin-bottom: 5px;
 }
 
-.button_global{
-  background-color:#fff176;
+.button_global {
+  background-color: #fff176;
   size: 20px;
+}
+
+/* ================= FEATURE / CATEGORY ================= */
+
+#feature {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1300px;
+  max-height: 180px;
+  margin: 30px auto;
+}
+
+#feature .fe-box {
+  width: 180px;
+  height: 180px;
+  text-align: center;
+  padding: 25px 15px;
+}
+
+#feature .fe-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* ================= MAIN LAYOUT ================= */
+
+.main-content {
+  flex: 1;
+}
+
+.index-main {
+  flex: 1;
+}
+
+/* ================= FOOTER ================= */
+
+footer img {
+  width: 100%;
+  display: block;
 }

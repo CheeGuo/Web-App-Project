@@ -7,7 +7,6 @@
 </head>
 
 <body>
-
   <header class="top-header">
     <div class="header-inner">
 
@@ -22,15 +21,44 @@
 
       <div class="action-area">
         <button>🛒</button>
-        <button>👤</button>
-        <span>LOG IN / SIGN UP</span>
+      <span><a href="login.php">LOG IN / SIGN UP</a></span>
       </div>
 
     </div>
   </header>
 
-  <main>
-    <!-- page content goes here -->
+  <main class="index-main">
+    <p style="text-align:center ;
+              font-weight: bold ;
+              font-size : 20px ; 
+              ">Categories</p>
+  <section id="feature" class="feature">
+  <div class="fe-box">
+    <img src="pic/Category-robot.png">
+    <h6>Robot</h6>
+  </div>
+  <div class="fe-box">
+    <img src="pic/Category-robot.png">
+    <h6>Robot</h6>
+  </div>
+  <div class="fe-box">
+    <img src="pic/Category-robot.png">
+    <h6>Robot</h6>
+  </div>
+  <div class="fe-box">
+    <img src="pic/Category-robot.png">
+    <h6>Robot</h6>
+  </div>
+  <div class="fe-box">
+    <img src="pic/Category-robot.png">
+    <h6>Robot</h6>
+  </div>
+  <div class="fe-box">
+    <img src="pic/Category-robot.png">
+    <h6>Robot</h6>
+  </div>
+</section>
+
   </main>
 
   <footer>
