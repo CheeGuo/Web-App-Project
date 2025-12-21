@@ -34,28 +34,28 @@
               ">Categories</p>
   <section id="feature" class="feature">
   <div class="fe-box">
-    <img src="pic/Category-robot.png">
-    <h6>Robot</h6>
+    <img src="pic/category-car.png">
+    <h6>Vehicles</h6>
+  </div>
+  <div class="fe-box">
+    <img src="pic/category-hobby.png">
+    <h6>Hobby and Leisure</h6>
+  </div>
+  <div class="fe-box">
+    <img src="pic/category-electronic.png">
+    <h6>Electronics</h6>
+  </div>
+  <div class="fe-box">
+    <img src="pic/category-electronics.png">
+    <h6>Electronics Devices</h6>
   </div>
   <div class="fe-box">
     <img src="pic/Category-robot.png">
     <h6>Robot</h6>
   </div>
   <div class="fe-box">
-    <img src="pic/Category-robot.png">
-    <h6>Robot</h6>
-  </div>
-  <div class="fe-box">
-    <img src="pic/Category-robot.png">
-    <h6>Robot</h6>
-  </div>
-  <div class="fe-box">
-    <img src="pic/Category-robot.png">
-    <h6>Robot</h6>
-  </div>
-  <div class="fe-box">
-    <img src="pic/Category-robot.png">
-    <h6>Robot</h6>
+    <img src="pic/Category-homeliving.png">
+    <h6>Home Living</h6>
   </div>
 </section>
 <section class="promo-hot">
