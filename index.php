@@ -32,32 +32,52 @@
               font-weight: bold ;
               font-size : 20px ; 
               ">Categories</p>
-  <section id="feature" class="feature">
-  <div class="fe-box">
-    <img src="pic/category-car.png">
-    <h6>Vehicles</h6>
-  </div>
-  <div class="fe-box">
-    <img src="pic/category-hobby.png">
-    <h6>Hobby and Leisure</h6>
-  </div>
-  <div class="fe-box">
-    <img src="pic/category-electronic.png">
-    <h6>Electronics</h6>
-  </div>
-  <div class="fe-box">
-    <img src="pic/category-electronics.png">
-    <h6>Electronics Devices</h6>
-  </div>
-  <div class="fe-box">
-    <img src="pic/Category-robot.png">
-    <h6>Robot</h6>
-  </div>
-  <div class="fe-box">
-    <img src="pic/Category-homeliving.png">
-    <h6>Home Living</h6>
-  </div>
+<section id="feature" class="feature">
+
+  <a href="vehicles.php" class="fe-link">
+    <div class="fe-box">
+      <img src="pic/category-car.png">
+      <h6>Vehicles</h6>
+    </div>
+  </a>
+
+  <a href="hobby.php" class="fe-link">
+    <div class="fe-box">
+      <img src="pic/category-hobby.png">
+      <h6>Hobby and Leisure</h6>
+    </div>
+  </a>
+
+  <a href="electronic.php" class="fe-link">
+    <div class="fe-box">
+      <img src="pic/category-electronic.png">
+      <h6>Electronics</h6>
+    </div>
+  </a>
+
+  <a href="electronics-devices.php" class="fe-link">
+    <div class="fe-box">
+      <img src="pic/category-electronics.png">
+      <h6>Electronics Devices</h6>
+    </div>
+  </a>
+
+  <a href="robot.php" class="fe-link">
+    <div class="fe-box">
+      <img src="pic/Category-robot.png">
+      <h6>Robot</h6>
+    </div>
+  </a>
+
+  <a href="home-living.php" class="fe-link">
+    <div class="fe-box">
+      <img src="pic/Category-homeliving.png">
+      <h6>Home Living</h6>
+    </div>
+  </a>
+
 </section>
+
 <section class="promo-hot">
   <div class="promo-left">
     <img src="pic/CNY.png" alt="CNY Promotion">
