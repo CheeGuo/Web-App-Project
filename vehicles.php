@@ -7,7 +7,6 @@
 </head>
     <?php
    include("include/footer.php"); 
-     include("include/header.php");
+   include("include/header.php");
     $category="vehicles";
 ?>
-

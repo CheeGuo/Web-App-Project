@@ -1,3 +1,5 @@
+<?php include("include/header.php");?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,5 @@
 </head>
   <?php
    include("include/footer.php"); 
-   include("include/header.php");
     $category="hobby";
 ?>
