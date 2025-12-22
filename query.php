@@ -1,3 +1,12 @@
+<!DOCTYPE HTML>
+<HTML>
+  <footer>
+    <a href="adminfirst.php">
+  <button>Back to Admin</button>
+</a>
+
+</footer>
+</HTML>
 <?php
 $db_server = "localhost";
 $db_user = "root";
@@ -39,6 +48,7 @@ $product = "CREATE TABLE IF NOT EXISTS product (
   category VARCHAR(100) NOT NULL,
   price DECIMAL(10,2) NOT NULL,
   stock INT NOT NULL,
+  url VARCHAR(255) NOT NULL ,
   PRIMARY KEY (product_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 
@@ -89,19 +99,22 @@ run($conn,$cart_item,"Create cart_item table");
 run($conn,$payment,"Create payment table");
 run($conn,$payment_item,"Create payment_item table");
 
-$i_users = "INSERT IGNORE INTO users VALUES
-('A0001','Emily Soo','Emily77','female','Emily77@gmail.com','-','011-4571284','Lot 12, Taman Bukit Indah','2024-01-01 10:00:00'),
-('A0002','Urkanish Ismail','urkanishmail','male','urkanishm@gmail.com','-','012-48963751','93350 Kuching, Sarawak','2024-01-01 10:00:00'),
-('A0003','Sarajohn Son','sarajohnson','male','smartboy@gmail.com','-',NULL,'Johor Bahru','2024-01-01 10:00:00'),
-('A0004','Mikael Yow','mikael456','male','mikael123@gmail.com','-',NULL,'Shah Alam','2024-01-01 10:00:00'),
-('A0005','May Historia','historiaMay','female','may1@gmail.com','-','016-7845554',NULL,'2024-01-01 10:00:00')";
+$i_users = "INSERT IGNORE INTO users
+(user_id, name, username, gender, email, password, phone, address, date_registered)
+VALUES
+('A0001','Emily Soo','Emily77','female','Emily77@gmail.com','-','011-4571284','-','2024-01-01 10:00:00'),
+('A0002','Urkanish Ismail','urkanishmail','male','urkanishm@gmail.com','-','012-48963751','Lot 12, Taman Bukit Indah, 93350 Kuching, Sarawak','2024-01-01 10:00:00'),
+('A0003','Sarajohn Son','sarajohnson','male','smartboy@gmail.com','-',NULL,'-','2024-01-01 10:00:00'),
+('A0004','Mikael Yow','mikael456','male','mikael123@gmail.com','-',NULL,'No. 7, Jalan Kempas 1, Taman Kempas Baru, 81200 Johor Bahru, Johor','2024-01-01 10:00:00'),
+('A0005','May Historia','historiaMay','female','may1@gmail.com','-','016-7845554','24, Jalan Meranti 3/2, Taman Sri Muda, 40400 Shah Alam, Selangor','2024-01-01 10:00:00')";
+
 
 $i_product = "INSERT IGNORE INTO product VALUES
-('PRD-202504-1A7X','3-Wheel Electric Scooter','Vehicles',9998,99),
-('PRD-202504-2F9K','4WD Lamborghini Sian','Hobby and Leisure',2999,50),
-('PRD-202504-5Y2M','Dinosaur Pleo','Hobby and Leisure',2999,24),
-('PRD-202504-6P7V','R2D2','Hobby and Leisure',2798,68),
-('PRD-202504-7W5C','Star Wars Monopoly','Hobby and Leisure',798,34)";
+('PRD-202504-1A7X','3-Wheel Electric Scooter','Vehicles',9998,99,NULL),
+('PRD-202504-2F9K','4WD Lamborghini Sian','Hobby and Leisure',2999,50,NULL),
+('PRD-202504-5Y2M','Dinosaur Pleo','Hobby and Leisure',2999,24,NULL),
+('PRD-202504-6P7V','R2D2','Hobby and Leisure',2798,68,NULL),
+('PRD-202504-7W5C','Star Wars Monopoly','Hobby and Leisure',798,34,NULL)";
 
 $i_cart = "INSERT IGNORE INTO cart VALUES
 ('C0001','A0001'),
@@ -117,8 +130,24 @@ $i_payment = "INSERT IGNORE INTO payment VALUES
 ('P004','C0004','0004',2798,'2024-01-02 10:00:00',1,'Online Banking'),
 ('P005','C0005','0005',798,'2024-01-02 10:00:00',1,'Paypal')";
 
+$i_payment_items = "INSERT IGNORE INTO payment_item (paymentItem_id, payment_id, product_id, quantity, subtotal) VALUES
+('PI0001','P001','PRD-202504-1A7X',1,9998),
+('PI0002','P002','PRD-202504-2F9K',1,2999),
+('PI0003','P003','PRD-202504-2F9K',1,2999),
+('PI0004','P004','PRD-202504-6P7V',1,2798),
+('PI0005','P005','PRD-202504-7W5C',1,798)";
+
+$i_cart_items = "INSERT IGNORE INTO cart_item (cartItem_id, cart_id, product_id, quantity) VALUES
+('CT0001','C0001','PRD-202504-1A7X',1),
+('CT0002','C0002','PRD-202504-2F9K',1),
+('CT0003','C0003','PRD-202504-2F9K',1),
+('CT0004','C0004','PRD-202504-6P7V',1),
+('CT0005','C0005','PRD-202504-7W5C',1)";
+
 run($conn,$i_users,"Insert users");
 run($conn,$i_product,"Insert products");
 run($conn,$i_cart,"Insert carts");
 run($conn,$i_payment,"Insert payments");
+run($conn , $i_cart_items,"Insert cart items");
+run($conn , $i_payment_items,"Insert payment items");
 ?>
