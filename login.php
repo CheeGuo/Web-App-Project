@@ -27,7 +27,4 @@
 
 </body>
 </html>
-<?php 
-include("footer.php"); 
-include("header.php");
-?>
+<?php include("include/footer.php"); ?>

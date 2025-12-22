@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
     <?php
-   include("footer.php"); 
-     include("header.php");
+   include("include/footer.php"); 
+     include("include/header.php");
     $category="vehicles";
 ?>
 

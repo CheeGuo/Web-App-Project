@@ -8,7 +8,7 @@
 
 
 <?php 
-    include("footer.php");
-    include("header.php"); 
+    include("include/footer.php");
+    include("include/header.php"); 
     $category="electronic";
 ?>
