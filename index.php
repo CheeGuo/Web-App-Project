@@ -131,9 +131,8 @@
     <p>Mob: 47-92060873</p>
   </div>
 </section>
-
-    <img src="pic/footer.png" alt="Footer Image">
   </footer>
 
 </body>
 </html>
+<?php include("footer.php"); ?>

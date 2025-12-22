@@ -25,10 +25,9 @@
 
     </div>
   </header>
-
-<footer>
-    <img src="pic/footer.png" alt="Footer Image">
-  </footer>
     <?php
+   include("footer.php"); 
+
     $category="vehicles";
 ?>
+
