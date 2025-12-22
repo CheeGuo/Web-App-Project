@@ -7,13 +7,12 @@
 
 html,
 body {
-  height: 100%;
-}
-
-body {
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
+
 
 /* ================= HEADER ================= */
 
@@ -88,6 +87,7 @@ body {
 
 .login {
   background-color: antiquewhite;
+  height: 100%;
 }
 
 body.login {
