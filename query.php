@@ -110,11 +110,11 @@ VALUES
 
 
 $i_product = "INSERT IGNORE INTO product VALUES
-('PRD-202504-1A7X','3-Wheel Electric Scooter','Vehicles',9998,99,NULL),
-('PRD-202504-2F9K','4WD Lamborghini Sian','Hobby and Leisure',2999,50,NULL),
-('PRD-202504-5Y2M','Dinosaur Pleo','Hobby and Leisure',2999,24,NULL),
-('PRD-202504-6P7V','R2D2','Hobby and Leisure',2798,68,NULL),
-('PRD-202504-7W5C','Star Wars Monopoly','Hobby and Leisure',798,34,NULL)";
+('PRD-202504-1A7X','3-Wheel Electric Scooter','Vehicles',9998,99,'product_pic/scooter.png'),
+('PRD-202504-2F9K','4WD Lamborghini Sian','Hobby and Leisure',2999,50,'product_pic/lambogini.png'),
+('PRD-202504-5Y2M','Dinosaur Pleo','Hobby and Leisure',2999,24,'product_pic/dino.png'),
+('PRD-202504-6P7V','R2D2','Hobby and Leisure',2798,68,'product_pic/R2D2.png'),
+('PRD-202504-7W5C','Star Wars Monopoly','Hobby and Leisure',798,34,'product_pic/monopoly.png')";
 
 $i_cart = "INSERT IGNORE INTO cart VALUES
 ('C0001','A0001'),
