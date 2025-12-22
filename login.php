@@ -27,7 +27,6 @@
       <button class="login-btn">Login</button>  <! Should be a link>
     </div>
   </div>
-  <br><br><br><br><br><br><br><br><br><br><br>
   <?php include("include/footer.php"); ?>
 </body>
 </html>
