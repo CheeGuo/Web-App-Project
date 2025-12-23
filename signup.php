@@ -12,32 +12,82 @@
       <img src="pic/arngren logo.png">
       <h2>Sign Up</h2>
     </div>
-    <form method="POST" name="signup">
+  
+  <form method="POST" name="signup">
+  <div class="input_form" >  
+    <label >Username</label>
+    <input type="text" name="username" placeholder="Username" required> 
+    <label >Email</label>
+    <input type="email" name="email" placeholder="E-mail"  required> 
+    <label >Full Name</label>
+    <input type="text" name="fullname" placeholder="Full Name" required> 
+    <label >Phone number</label>
+    <input type="tel" name="phone" placeholder="Phone No" required pattern="[0-9]{10,11}">
+    <label >Password</label>
+    <input type="password" name="password" placeholder="Password" required minlength="8">
+    <label >Date of Birth</label>
+    <input type="date" name="registered_date" required>
+  </div>
 
-  <input type="text" name="username" placeholder="Username">
+  <label class="gender-option">
+    <input type="radio" name="gender" value="Male" required>
+    <span>Male</span>
+    <input type="radio" name="gender" value="Female">
+    <span>Female</span>
+  </label>
 
-  <input type="email" name="email" placeholder="E-mail">
-
-  <input type="text" name="fullname" placeholder="Full Name">
-
-  <input type="text" name="gender" placeholder="Gender">
-
-  <input type="tel" name="phone" placeholder="Phone No">
-
-  <input type="password" name="password" placeholder="Password">
-
-  <input type="date" name="registered_date">
-
-  <input type="submit" name="submit" value="Confirm">
-
+  <input type="submit" name="submit" value="Confirm" required>
+    <div class="gender-group">
+</div>
 </form>
-
-
-    <button class="login-btn">Login</button>  <! Should be a link>
   </div>
 </div>
-
 </body>
 </html>
-<?php include("include/footer.php"); ?>
+<?php 
+include("include/footer.php"); 
+include("include/db.php");
 
+if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["fullname"]) && isset($_POST["gender"]) && isset($_POST["phone"]) &&isset($_POST["password"])&&isset($_POST["registered_date"])){
+$username = $_POST["username"];
+$email = $_POST["email"];
+$fullname = $_POST["fullname"];
+$gender = $_POST["gender"];
+$phone = $_POST["phone"];
+$pass = $_POST["password"];
+$date =$_POST["registered_date"];
+
+$pass = password_hash($pass,PASSWORD_DEFAULT);
+$query = "SELECT COUNT(*) AS total FROM USERS";
+$result = mysqli_query($conn,$query);
+$row = mysqli_fetch_assoc($result);
+$num = $row["total"];
+
+$nextNumber = $num + 1;
+$user_id = "A" . str_pad($nextNumber, 4, "0", STR_PAD_LEFT);
+
+$query = "INSERT IGNORE INTO USERS
+(user_id,username,name,gender,email,password,phone,address,date_registered)
+VALUES (?, ?,?, ?, ?, ?, ?, ?, ?)";
+
+$stmt = mysqli_prepare($conn,$query);
+$address = NULL ; 
+mysqli_stmt_bind_param(
+  $stmt ,
+  "sssssssss",
+  $user_id,
+  $fullname,
+  $username,
+  $gender , 
+  $email , 
+  $pass,
+  $phone , 
+  $address , 
+  $date 
+);
+mysqli_stmt_execute($stmt);
+}else {
+  echo "something wrong" ;
+}
+
+?>

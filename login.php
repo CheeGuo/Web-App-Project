@@ -21,7 +21,7 @@
 
       <div class="login-links">
         <span>Forgot password?</span> <! Should be a link>
-        <span>New user?</span> <! Should be a link>
+        <a href="signup.php">New user?</a>
       </div>
 
       <button class="login-btn">Login</button>  <! Should be a link>
@@ -30,3 +30,6 @@
   <?php include("include/footer.php"); ?>
 </body>
 </html>
+<?
+include("include/db.php")
+?>
