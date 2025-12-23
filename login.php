@@ -15,21 +15,25 @@
         <img src="pic/arngren logo.png">
         <h2>Log In</h2>
       </div>
-
-      <input type="text" placeholder="Username">
-      <input type="password" placeholder="Password">
-
+    <form name="login" method="POST">
+      <input type="text" placeholder="Username" name="username">
+      <input type="pass" placeholder="Password" name="password">
+      <input class="login-btn" type="submit" value="Login">
+    </form>
       <div class="login-links">
         <span>Forgot password?</span> <! Should be a link>
         <a href="signup.php">New user?</a>
-      </div>
-
-      <button class="login-btn">Login</button>  <! Should be a link>
+      </div>  
     </div>
   </div>
-  <?php include("include/footer.php"); ?>
 </body>
 </html>
-<?
-include("include/db.php")
+<?php
+include("include/footer.php");
+include("include/db.php");
+$username =$_POST["username"];
+$password = password_hash($_POST["username"],PASSWORD_DEFAULT);
+
+$_POST["password"];
+
 ?>
