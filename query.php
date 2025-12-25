@@ -92,7 +92,14 @@ $payment_item = "CREATE TABLE IF NOT EXISTS payment_item (
   FOREIGN KEY (payment_id) REFERENCES payment(payment_id),
   FOREIGN KEY (product_id) REFERENCES product(product_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
-
+$email_reset="CREATE TABLE password_resets (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id VARCHAR(15) NOT NULL,
+  token_hash VARCHAR(255) NOT NULL,
+  expires_at DATETIME NOT NULL
+);
+";
+run($conn,$email_reset,"Create reset data");
 run($conn,$users,"Create users table");
 run($conn,$product,"Create product table");
 run($conn,$cart,"Create cart table");
