@@ -68,7 +68,7 @@ $user_id = "A" . str_pad($nextNumber, 4, "0", STR_PAD_LEFT);
 
 $query = "INSERT IGNORE INTO USERS
 (user_id,username,name,gender,email,password,phone,address,date_registered)
-VALUES (?, ?,?, ?, ?, ?, ?, ?, ?)";
+VALUES (?, ? ,?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = mysqli_prepare($conn,$query);
 $address = NULL ; 
@@ -76,8 +76,8 @@ mysqli_stmt_bind_param(
   $stmt ,
   "sssssssss",
   $user_id,
-  $fullname,
   $username,
+  $fullname,
   $gender , 
   $email , 
   $pass,
@@ -86,6 +86,7 @@ mysqli_stmt_bind_param(
   $date 
 );
 mysqli_stmt_execute($stmt);
+header("location:login.php");
 }else {
   echo "something wrong" ;
 }

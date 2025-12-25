@@ -325,13 +325,6 @@ footer img {
   accent-color: #9b2fae;
 }
 
-.input_form {
-  display: flex;
-  flex-direction: column;
-}
-
-.input_form label {
-  text-align: left;
-  margin: 8px 0 4px;
-  font-size: 14px;
+.input_form label{
+  text-align : left ; 
 }

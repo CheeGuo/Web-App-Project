@@ -1,3 +1,36 @@
+<?php
+session_start();
+include("include/db.php");
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $username = $_POST["username"];
+    $pass = $_POST["password"];
+    $bool = False ;
+    $statement = $conn->prepare("SELECT password FROM users WHERE username = ?");
+    $statement->bind_param("s", $username);
+    $statement->execute();
+    $statement->store_result();
+
+    if ($statement->num_rows === 1) {
+        $bool = True ; 
+        $statement->bind_result($hashed_password);
+        $statement->fetch();
+
+        if (password_verify($pass, $hashed_password)) {
+            $_SESSION["username"] = $username;
+            header("location:index.php");
+            exit();
+        } else {
+          if($bool)
+            $error = "Wrong password";
+        }
+    } else {
+      if($bool)
+        $error = "Wrong username";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,34 +39,30 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="login">
-  <div>
-    <br>
-  </div>
+  <div><br></div>
+
   <div class="login-container">
     <div class="login-card">
       <div class="login-title">
         <img src="pic/arngren logo.png">
         <h2>Log In</h2>
       </div>
-    <form name="login" method="POST">
-      <input type="text" placeholder="Username" name="username">
-      <input type="pass" placeholder="Password" name="password">
-      <input class="login-btn" type="submit" value="Login">
-    </form>
+
+      <form method="POST">
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <input class="login-btn" type="submit" value="Login">
+      </form>
+
+      <?php if (isset($error)) echo "<p>$error</p>"; ?>
+
       <div class="login-links">
-        <span>Forgot password?</span> <! Should be a link>
+        <a href="#">Forgot password?</a>
         <a href="signup.php">New user?</a>
-      </div>  
+      </div>
     </div>
   </div>
+
+<?php include("include/footer.php"); ?>
 </body>
 </html>
-<?php
-include("include/footer.php");
-include("include/db.php");
-$username =$_POST["username"];
-$password = password_hash($_POST["username"],PASSWORD_DEFAULT);
-
-$_POST["password"];
-
-?>
