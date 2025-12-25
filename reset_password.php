@@ -1,4 +1,11 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer-master/PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/PHPMailer-master/src/SMTP.php';
+
 include("include/db.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -21,12 +28,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->bind_param("sss", $user_id, $token_hash, $expires);
         $stmt->execute();
 
-        echo "Reset link sent:<br>";
-        echo "<a href='reset_password.php?token=$token'>Reset Password</a>";
-        exit();
+        $link = "http://localhost/Web-App-Project/reset_password_pass.php?token=$token";
+
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = "smtp.gmail.com";
+        $mail->SMTPAuth = true;
+        $mail->Username = "cheeguo12@gmail.com";
+        $mail->Password = "hsvf uleg mpep kwpv";
+        $mail->SMTPSecure = "tls";
+        $mail->Port = 587;
+
+        $mail->setFrom("cheeguo12@gmail.com", "Arngren Support");
+        $mail->addAddress($email);
+
+        $mail->isHTML(true);
+        $mail->Subject = "Reset Your Password";
+        $mail->Body = "Click the link below to reset your password:<br><br><a href='$link'>$link</a>";
+
+        $mail->send();
     }
 
-    echo "If this email exists, a reset link will be sent.";
+    echo "If this email exists, a reset link has been sent.";
 }
 ?>
 
