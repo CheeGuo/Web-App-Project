@@ -325,6 +325,13 @@ footer img {
   accent-color: #9b2fae;
 }
 
+.input_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: left;
+}
+
 .input_form label{
   text-align : left ; 
 }

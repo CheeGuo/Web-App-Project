@@ -56,6 +56,7 @@ $gender = $_POST["gender"];
 $phone = $_POST["phone"];
 $pass = $_POST["password"];
 $date =$_POST["registered_date"];
+$role = "customer";
 
 $pass = password_hash($pass,PASSWORD_DEFAULT);
 $query = "SELECT COUNT(*) AS total FROM USERS";
@@ -67,14 +68,14 @@ $nextNumber = $num + 1;
 $user_id = "A" . str_pad($nextNumber, 4, "0", STR_PAD_LEFT);
 
 $query = "INSERT IGNORE INTO USERS
-(user_id,username,name,gender,email,password,phone,address,date_registered)
-VALUES (?, ? ,?, ?, ?, ?, ?, ?, ?)";
+(user_id,username,name,gender,email,password,phone,address,role,date_registered)
+VALUES (?, ? ,?, ?, ?, ?, ?, ?, ?,? )";
 
 $stmt = mysqli_prepare($conn,$query);
 $address = NULL ; 
 mysqli_stmt_bind_param(
   $stmt ,
-  "sssssssss",
+  "ssssssssss",
   $user_id,
   $username,
   $fullname,
@@ -83,6 +84,7 @@ mysqli_stmt_bind_param(
   $pass,
   $phone , 
   $address , 
+  $role,
   $date 
 );
 mysqli_stmt_execute($stmt);

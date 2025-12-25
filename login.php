@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <?php if (isset($error)) echo "<p>$error</p>"; ?>
 
       <div class="login-links">
-        <a href="#">Forgot password?</a>
+        <a href="reset_password.php">Forgot password?</a>
         <a href="signup.php">New user?</a>
       </div>
     </div>

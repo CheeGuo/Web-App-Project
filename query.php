@@ -104,7 +104,7 @@ $password_admin = password_hash("admin123",PASSWORD_DEFAULT);
 $i_users = "INSERT IGNORE INTO users
 (user_id, name, username, gender, email, password, phone, address, role,date_registered)
 VALUES
-('A0001','Admin','Admin','-','cheeguo11@gmail.com','$password_admin','-','-','admin','2024-01-01 10:00:00'),
+('A0001','Admin','Admin','-','admin@gmail.com','$password_admin','-','-','admin','2024-01-01 10:00:00'),
 ('A0002','Emily Soo','Emily77','female','Emily77@gmail.com','$password','011-4571284','-','customer','2024-01-01 10:00:00'),
 ('A0003','Urkanish Ismail','urkanishmail','male','urkanishm@gmail.com','$password' ,'012-48963751','Lot 12, Taman Bukit Indah, 93350 Kuching, Sarawak','customer','2024-01-01 10:00:00'),
 ('A0004','Sarajohn Son','sarajohnson','male','smartboy@gmail.com','$password' ,NULL,'-','customer','2024-01-01 10:00:00'),
