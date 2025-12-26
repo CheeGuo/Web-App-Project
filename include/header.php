@@ -2,8 +2,11 @@
     <div class="header-inner">
 
       <div class="logo-area">
-        <img src="pic/arngren logo.png" alt="Arngren Logo">
-      </div>
+  <a href="index.php">
+    <img src="pic/arngren logo.png" alt="Arngren Logo">
+  </a>
+</div>
+
 
       <div class="search-area">
         <input type="text" placeholder="Search">

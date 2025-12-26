@@ -335,3 +335,48 @@ footer img {
 .input_form label{
   text-align : left ; 
 }
+
+/* product layer*/
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 40px;
+    padding: 40px 80px 20px;
+    justify-items: center;
+}
+
+.product {
+    text-align: center;
+    width: 220px;
+}
+
+.product img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.product p {
+    margin: 8px 0 4px;
+    font-size: 14px;
+}
+
+.price {
+    color: #19b56f;
+    font-weight: bold;
+}
+
+.next-btn {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 40px;
+}
+
+.next-btn button {
+    padding: 8px 24px;
+    border-radius: 20px;
+    border: none;
+    background: #ffeb6e;
+    cursor: pointer;
+    font-weight: bold;
+}

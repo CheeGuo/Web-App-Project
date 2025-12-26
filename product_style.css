@@ -1,0 +1,32 @@
+.product-page .products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px 40px;
+    padding: 40px 80px;
+    justify-items: center;
+}
+
+.product-page .product {
+    text-align: center;
+    width: 220px;
+}
+
+.product-page .product img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.product-page .product p {
+    margin: 8px 0 4px;
+    font-size: 14px;
+}
+
+.product-page .price {
+    color: #19b56f;
+    font-weight: bold;
+}
+
+.product-page form {
+    margin: 20px 40px;
+}
