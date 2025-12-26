@@ -90,7 +90,11 @@ mysqli_stmt_bind_param(
 mysqli_stmt_execute($stmt);
 header("location:login.php");
 }else {
-  echo "something wrong" ;
+  echo "
+  <script>
+  alert('Something when wrong.Please try again');
+  </script>
+  " ;
 }
 
 ?>

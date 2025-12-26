@@ -55,7 +55,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->send();
     }
 
-    echo "If this email exists, a reset link has been sent.";
+    echo "
+    <script>
+    alert('If the email is exist , then the link will send it to your own email')
+    </script>
+    ";
 }
 ?>
 
