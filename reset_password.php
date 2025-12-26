@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $stmt->execute();
 
         $link = "http://localhost/Web-App-Project/reset_password_pass.php?token=$token";
-
+        try{
         $mail = new PHPMailer(true);
         $mail->isSMTP();
         $mail->Host = $host;
@@ -53,13 +53,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->Body = "Click the link below to reset your password:<br><br><a href='$link'>$link</a>";
 
         $mail->send();
-    }
-
-    echo "
+        }catch(Exception $e){
+          echo "
+          <script>
+          alert('Something when wrong ');
+          </script>
+          ";
+        }
+                     echo "
     <script>
-    alert('If the email is exist , then the link will send it to your own email')
+    alert('If the email is exist , then the link will send it to your own email');
+    window.location.href = 'index.php';
     </script>
     ";
+    }
+
+
 }
 ?>
 

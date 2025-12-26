@@ -47,8 +47,9 @@
 <?php 
 include("include/footer.php"); 
 include("include/db.php");
-
+$bool = False ; 
 if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["fullname"]) && isset($_POST["gender"]) && isset($_POST["phone"]) &&isset($_POST["password"])&&isset($_POST["registered_date"])){
+$bool = True ; 
 $username = $_POST["username"];
 $email = $_POST["email"];
 $fullname = $_POST["fullname"];
@@ -89,7 +90,7 @@ mysqli_stmt_bind_param(
 );
 mysqli_stmt_execute($stmt);
 header("location:login.php");
-}else {
+}else if($bool) {
   echo "
   <script>
   alert('Something when wrong.Please try again');
