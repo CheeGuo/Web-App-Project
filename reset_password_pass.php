@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $stmt->execute();
 
     echo "Password reset successful";
+    
     exit();
 }
 ?>

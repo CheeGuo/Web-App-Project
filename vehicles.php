@@ -1,3 +1,4 @@
+<?php include("include/header.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
     <?php
-   include("include/footer.php"); 
-   include("include/header.php");
+    include("include/footer.php"); 
     $category="vehicles";
 ?>

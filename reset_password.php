@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           </script>
           ";
         }
-                     echo "
+    echo "
     <script>
     alert('If the email is exist , then the link will send it to your own email');
     window.location.href = 'index.php';
