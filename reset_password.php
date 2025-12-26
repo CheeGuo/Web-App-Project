@@ -5,7 +5,7 @@ require_once 'include/env.php';
 
 $host = getenv('SMTP_HOST');
 $port = getenv('SMTP_PORT');
-$email = getenv('SMTP_EMAIL');
+$env_email = getenv('SMTP_EMAIL');
 $password = getenv('SMTP_PASSWORD');
 
 require 'PHPMailer-master/PHPMailer-master/src/Exception.php';
@@ -40,12 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $mail->isSMTP();
         $mail->Host = $host;
         $mail->SMTPAuth = true;
-        $mail->Username = $email;
+        $mail->Username = $env_email;
         $mail->Password = $password;
         $mail->SMTPSecure = "tls";
         $mail->Port = $port;
 
-        $mail->setFrom("cheeguo12@gmail.com", "Arngren Support");
+        $mail->setFrom($env_email, "Arngren Support");
         $mail->addAddress($email);
 
         $mail->isHTML(true);
