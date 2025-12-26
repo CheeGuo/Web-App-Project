@@ -1,6 +1,12 @@
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+require_once 'include/env.php';
+
+$host = getenv('SMTP_HOST');
+$port = getenv('SMTP_PORT');
+$email = getenv('SMTP_EMAIL');
+$password = getenv('SMTP_PASSWORD');
 
 require 'PHPMailer-master/PHPMailer-master/src/Exception.php';
 require 'PHPMailer-master/PHPMailer-master/src/PHPMailer.php';
@@ -32,12 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $mail = new PHPMailer(true);
         $mail->isSMTP();
-        $mail->Host = "smtp.gmail.com";
+        $mail->Host = $host;
         $mail->SMTPAuth = true;
-        $mail->Username = "cheeguo12@gmail.com";
-        $mail->Password = "hsvf uleg mpep kwpv";
+        $mail->Username = $email;
+        $mail->Password = $password;
         $mail->SMTPSecure = "tls";
-        $mail->Port = 587;
+        $mail->Port = $port;
 
         $mail->setFrom("cheeguo12@gmail.com", "Arngren Support");
         $mail->addAddress($email);
