@@ -24,7 +24,10 @@ if ($profilePic === '') {
     </div>
 
     <div class="action-area">
-      <button>🛒</button>
+      <a href="cart.php">
+      <button style="  width: 42px;height: 42px;" >🛒</button>
+      </a>
+  
 
       <?php if (!isset($_SESSION['user_id'])): ?>
         <a href="login.php" class="login-link">LOG IN / SIGN UP</a>
