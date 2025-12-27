@@ -87,6 +87,7 @@ $payment_item = "CREATE TABLE IF NOT EXISTS payment_item (
   FOREIGN KEY (payment_id) REFERENCES payment(payment_id),
   FOREIGN KEY (product_id) REFERENCES product(product_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+
 $email_reset="CREATE TABLE password_resets (
   id INT AUTO_INCREMENT PRIMARY KEY,
   user_id VARCHAR(15) NOT NULL,
@@ -101,6 +102,7 @@ run($conn,$cart,"Create cart table");
 run($conn,$cart_item,"Create cart_item table");
 run($conn,$payment,"Create payment table");
 run($conn,$payment_item,"Create payment_item table");
+
 $password = password_hash("12345678",PASSWORD_DEFAULT);
 $password_admin = password_hash("admin123",PASSWORD_DEFAULT);
 $i_users = "INSERT IGNORE INTO users

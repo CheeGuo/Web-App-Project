@@ -1,3 +1,3 @@
 <?php
-include('include/header');
+include('include/header.php');
 ?>
