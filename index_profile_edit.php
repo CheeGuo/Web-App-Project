@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             SELECT user_id FROM users 
             WHERE email = ? AND user_id != ?
         ");
-        $check->bind_param("si", $email, $user_id);
+        $check->bind_param("ss", $email, $user_id);
         $check->execute();
         $check->store_result();
 
@@ -64,14 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     SET email = ?, phone = ?, gender = ?, password = ?
                     WHERE user_id = ?
                 ");
-                $stmt->bind_param("ssssi", $email, $phone, $gender, $hashed, $user_id);
+                $stmt->bind_param("sssss", $email, $phone, $gender, $hashed, $user_id);
             } else {
                 $stmt = $conn->prepare("
                     UPDATE users 
                     SET phone = ?, gender = ?, password = ?
                     WHERE user_id = ?
                 ");
-                $stmt->bind_param("sssi", $phone, $gender, $hashed, $user_id);
+                $stmt->bind_param("ssss", $phone, $gender, $hashed, $user_id);
             }
         } else {
             if ($email !== $db_email) {
@@ -80,14 +80,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     SET email = ?, phone = ?, gender = ?
                     WHERE user_id = ?
                 ");
-                $stmt->bind_param("sssi", $email, $phone, $gender, $user_id);
+                $stmt->bind_param("ssss", $email, $phone, $gender, $user_id);
             } else {
                 $stmt = $conn->prepare("
                     UPDATE users 
                     SET phone = ?, gender = ?
                     WHERE user_id = ?
                 ");
-                $stmt->bind_param("ssi", $phone, $gender, $user_id);
+                $stmt->bind_param("sss", $phone, $gender, $user_id);
             }
         }
 

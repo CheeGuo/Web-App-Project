@@ -14,7 +14,7 @@ $stmt = $conn->prepare("
     FROM users
     WHERE user_id = ?
 ");
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("s", $user_id);
 $stmt->execute();
 $stmt->bind_result($username, $email, $full_name, $gender, $phone, $created_at, $profile_pic);
 $stmt->fetch();
