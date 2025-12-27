@@ -40,7 +40,10 @@ if ($from && $to) {
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
+<!DOCTYPE HTML>
+<html>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="product_style.css">
 <main class="history-page">
 
   <h2 class="history-title">Purchase History</h2>
@@ -82,5 +85,5 @@ $result = $stmt->get_result();
   </table>
 
 </main>
-
+</html>
 <?php include('include/footer.php'); ?>
