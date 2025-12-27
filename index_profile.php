@@ -25,7 +25,8 @@ if ($profile_pic == '') {
 }
 ?>
   <link rel="stylesheet" href="style.css">
-<main class="profile-page">
+
+<main class="profile-page" style = "align-item : center";>
 
   <div class="profile-card">
 
