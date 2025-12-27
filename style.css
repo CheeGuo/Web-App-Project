@@ -479,3 +479,37 @@ footer img {
 .cart-btn.checkout {
   background: #ffe44d;
 }
+
+/* Purchase History*/
+.history-page {
+  padding: 40px;
+  text-align: center;
+}
+
+.history-title {
+  margin-bottom: 20px;
+}
+
+.date-filter {
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.history-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 420px;
+}
+
+.history-table th,
+.history-table td {
+  border: 1px solid #333;
+  padding: 10px;
+}
+
+.history-table th {
+  background: #f5f5f5;
+}
+

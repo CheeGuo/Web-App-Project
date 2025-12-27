@@ -9,71 +9,77 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-$stmt = $conn->prepare("
+$from = $_GET['from'] ?? '';
+$to = $_GET['to'] ?? '';
+
+$sql = "
     SELECT 
-        p.payment_id,
+        p.order_id,
         p.total_amount,
         p.payment_date,
-        p.payment_method
+        p.payment_status
     FROM payment p
     JOIN cart c ON p.cart_id = c.cart_id
     WHERE c.user_id = ?
-    ORDER BY p.payment_date DESC
-");
-$stmt->bind_param("s", $user_id);
+";
+
+if ($from && $to) {
+    $sql .= " AND DATE(p.payment_date) BETWEEN ? AND ?";
+}
+
+$sql .= " ORDER BY p.payment_date DESC";
+
+$stmt = $conn->prepare($sql);
+
+if ($from && $to) {
+    $stmt->bind_param("sss", $user_id, $from, $to);
+} else {
+    $stmt->bind_param("s", $user_id);
+}
+
 $stmt->execute();
-$payments = $stmt->get_result();
+$result = $stmt->get_result();
 ?>
-
 <link rel="stylesheet" href="style.css">
-
 <main class="history-page">
-  <h2 style="text-align:center;">Purchase History</h2>
 
-  <?php if ($payments->num_rows === 0): ?>
-    <p style="text-align:center;">No purchase history found.</p>
-  <?php endif; ?>
+  <h2 class="history-title">Purchase History</h2>
+  <form method="get" class="date-filter">
+    <span>Date :</span>
+    <input type="date" name="from" value="<?= htmlspecialchars($from) ?>">
+    <span>—</span>
+    <input type="date" name="to" value="<?= htmlspecialchars($to) ?>">
+    <button type="submit">Filter</button>
+  </form>
 
-  <?php while ($pay = $payments->fetch_assoc()): ?>
-    <div class="order-card">
+  <table class="history-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Total (kr)</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
 
-      <div class="order-header">
-        <strong>Order ID:</strong> <?= $pay['payment_id'] ?>
-        <span><?= date('d/m/Y', strtotime($pay['payment_date'])) ?></span>
-      </div>
+    <?php if ($result->num_rows === 0): ?>
+      <tr>
+        <td colspan="4" style="text-align:center;">No records found</td>
+      </tr>
+    <?php endif; ?>
 
-      <?php
-      $stmt2 = $conn->prepare("
-          SELECT 
-              pr.name,
-              pi.quantity,
-              pi.subtotal
-          FROM payment_item pi
-          JOIN product pr ON pi.product_id = pr.product_id
-          WHERE pi.payment_id = ?
-      ");
-      $stmt2->bind_param("s", $pay['payment_id']);
-      $stmt2->execute();
-      $items = $stmt2->get_result();
-      ?>
+    <?php while ($row = $result->fetch_assoc()): ?>
+      <tr>
+        <td><?= htmlspecialchars($row['order_id']) ?></td>
+        <td><?= number_format($row['total_amount'], 2) ?></td>
+        <td><?= date('j/n/Y', strtotime($row['payment_date'])) ?></td>
+        <td><?= $row['payment_status'] == 1 ? 'Successful' : 'Pending' ?></td>
+      </tr>
+    <?php endwhile; ?>
 
-      <table class="order-table">
-        <?php while ($item = $items->fetch_assoc()): ?>
-          <tr>
-            <td><?= htmlspecialchars($item['name']) ?></td>
-            <td>x<?= $item['quantity'] ?></td>
-            <td><?= number_format($item['subtotal'], 2) ?> kr</td>
-          </tr>
-        <?php endwhile; ?>
-      </table>
-
-      <div class="order-footer">
-        <strong>Total:</strong> <?= number_format($pay['total_amount'], 2) ?> kr
-        <span><?= $pay['payment_method'] ?></span>
-      </div>
-
-    </div>
-  <?php endwhile; ?>
+    </tbody>
+  </table>
 
 </main>
 
