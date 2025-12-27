@@ -47,10 +47,12 @@ if ($profile_pic == '') {
         <input type="text" value="<?= $username ?>" readonly>
       </div>
 
-      <div class="field">
+      <div class="field edit">
         <label>E-mail:</label>
-        <input type="text" value="<?= $email ?>" readonly>
-      </div>
+        <input type="email" id="emailInput" value="<?= $email ?>" readonly>
+        <a href="index_profile_edit.php">✎</a>
+        </div>
+
 
       <div class="field">
         <label>Full Name:</label>
@@ -65,13 +67,13 @@ if ($profile_pic == '') {
       <div class="field edit">
         <label>Phone No:</label>
         <input type="text" value="<?= $phone ?>" readonly>
-        <span class="edit-icon">✎</span>
+        <a href="index_profile_edit.php">✎</a>
       </div>
 
       <div class="field edit">
         <label>Password:</label>
         <input type="password" value="************" readonly>
-        <span class="edit-icon">✎</span>
+        <a href="index_profile_edit.php">✎</a>
       </div>
 
       <div class="field">

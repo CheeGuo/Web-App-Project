@@ -8,7 +8,7 @@ if ($profilePic === '') {
     $profilePic = 'pic/default-avatar.png';
 }
 ?>
-
+  <link rel="stylesheet" href="style.css">
 <header class="top-header">
   <div class="header-inner">
 

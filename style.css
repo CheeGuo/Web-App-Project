@@ -339,11 +339,13 @@ footer img {
 .profile-page {
   background: #fff;
   padding: 60px 0;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-wrapper {
   max-width: 1300px;
-  margin: 0 auto;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -356,6 +358,7 @@ footer img {
   grid-template-columns: 280px 1fr;
   column-gap: 40px;
 }
+
 
 .profile-left h2 {
   font-size: 28px;
