@@ -6,20 +6,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"];
     $pass = $_POST["password"];
 
-    $stmt = $conn->prepare("SELECT user_id, username, password, profile_pic FROM users WHERE username = ?");
+    $stmt = $conn->prepare("SELECT user_id, username, password, role, profile_pic  FROM users WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_rows === 1) {
-        $stmt->bind_result($user_id, $db_username, $hashed_password, $profile_pic);
+        $stmt->bind_result($user_id, $db_username, $hashed_password, $role, $profile_pic);
         $stmt->fetch();
 
         if (password_verify($pass, $hashed_password)) {
             $_SESSION["user_id"] = $user_id;
             $_SESSION["username"] = $db_username;
             $_SESSION["profile_pic"] = $profile_pic ?: "pic/default-avatar.png";
+            $_SESSION["role"] = $role ; 
+            if($_SESSION["role"] === "admin"){
+              header("Location: admin_index.php");
+            }else{
             header("Location: index.php");
+            }
             exit();
         } else {
             $error = "Wrong password";
