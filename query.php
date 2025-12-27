@@ -8,13 +8,7 @@
 </footer>
 </HTML>
 <?php
-$db_server = "localhost";
-$db_user = "root";
-$db_pass = "";
-$db_name = "webapp";
-
-$conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
-
+include('include/db.php');
 if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
@@ -38,6 +32,7 @@ $users = "CREATE TABLE IF NOT EXISTS users (
   address VARCHAR(255),
   role VARCHAR(9) , 
   date_registered DATETIME NOT NULL,
+  profile_pic VARCHAR(255) ,
   PRIMARY KEY (user_id),
   UNIQUE (username),
   UNIQUE (email)
@@ -109,14 +104,14 @@ run($conn,$payment_item,"Create payment_item table");
 $password = password_hash("12345678",PASSWORD_DEFAULT);
 $password_admin = password_hash("admin123",PASSWORD_DEFAULT);
 $i_users = "INSERT IGNORE INTO users
-(user_id, name, username, gender, email, password, phone, address, role,date_registered)
+(user_id, name, username, gender, email, password, phone, address, role,date_registered,profile_pic)
 VALUES
-('A0001','Admin','Admin','-','admin@gmail.com','$password_admin','-','-','admin','2024-01-01 10:00:00'),
-('A0002','Emily Soo','Emily77','female','Emily77@gmail.com','$password','011-4571284','-','customer','2024-01-01 10:00:00'),
-('A0003','Urkanish Ismail','urkanishmail','male','urkanishm@gmail.com','$password' ,'012-48963751','Lot 12, Taman Bukit Indah, 93350 Kuching, Sarawak','customer','2024-01-01 10:00:00'),
-('A0004','Sarajohn Son','sarajohnson','male','smartboy@gmail.com','$password' ,NULL,'-','customer','2024-01-01 10:00:00'),
-('A0005','Mikael Yow','mikael456','male','mikael123@gmail.com','$password' ,NULL,'No. 7, Jalan Kempas 1, Taman Kempas Baru, 81200 Johor Bahru, Johor','customer','2024-01-01 10:00:00'),
-('A0006','May Historia','historiaMay','female','may1@gmail.com','$password' ,'016-7845554','24, Jalan Meranti 3/2, Taman Sri Muda, 40400 Shah Alam, Selangor','customer','2024-01-01 10:00:00')";
+('A0001','Admin','Admin','-','admin@gmail.com','$password_admin','-','-','admin','2024-01-01 10:00:00',''),
+('A0002','Emily Soo','Emily77','female','Emily77@gmail.com','$password','011-4571284','-','customer','2024-01-01 10:00:00',''),
+('A0003','Urkanish Ismail','urkanishmail','male','urkanishm@gmail.com','$password' ,'012-48963751','Lot 12, Taman Bukit Indah, 93350 Kuching, Sarawak','customer','2024-01-01 10:00:00',''),
+('A0004','Sarajohn Son','sarajohnson','male','smartboy@gmail.com','$password' ,NULL,'-','customer','2024-01-01 10:00:00',''),
+('A0005','Mikael Yow','mikael456','male','mikael123@gmail.com','$password' ,NULL,'No. 7, Jalan Kempas 1, Taman Kempas Baru, 81200 Johor Bahru, Johor','customer','2024-01-01 10:00:00',''),
+('A0006','May Historia','historiaMay','female','may1@gmail.com','$password' ,'016-7845554','24, Jalan Meranti 3/2, Taman Sri Muda, 40400 Shah Alam, Selangor','customer','2024-01-01 10:00:00','')";
 
 
 $i_product = "INSERT IGNORE INTO product VALUES

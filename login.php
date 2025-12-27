@@ -5,27 +5,26 @@ include("include/db.php");
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"];
     $pass = $_POST["password"];
-    $bool = False ;
-    $statement = $conn->prepare("SELECT password FROM users WHERE username = ?");
-    $statement->bind_param("s", $username);
-    $statement->execute();
-    $statement->store_result();
 
-    if ($statement->num_rows === 1) {
-        $bool = True ; 
-        $statement->bind_result($hashed_password);
-        $statement->fetch();
+    $stmt = $conn->prepare("SELECT user_id, username, password, profile_pic FROM users WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows === 1) {
+        $stmt->bind_result($user_id, $db_username, $hashed_password, $profile_pic);
+        $stmt->fetch();
 
         if (password_verify($pass, $hashed_password)) {
-            $_SESSION["username"] = $username;
-            header("location:index.php");
+            $_SESSION["user_id"] = $user_id;
+            $_SESSION["username"] = $db_username;
+            $_SESSION["profile_pic"] = $profile_pic ?: "pic/default-avatar.png";
+            header("Location: index.php");
             exit();
         } else {
-          if($bool)
             $error = "Wrong password";
         }
     } else {
-      if($bool)
         $error = "Wrong username";
     }
 }
@@ -39,30 +38,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="login">
-  <div><br></div>
 
-  <div class="login-container">
-    <div class="login-card">
-      <div class="login-title">
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-title">
+      <a href="index.php">
         <img src="pic/arngren logo.png">
-        <h2>Log In</h2>
-      </div>
+      </a>
+      <h2>Log In</h2>
+    </div>
 
-      <form method="POST">
-        <input type="text" placeholder="Username" name="username" required>
-        <input type="password" placeholder="Password" name="password" required>
-        <input class="login-btn" type="submit" value="Login">
-      </form>
+    <form method="POST">
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input class="login-btn" type="submit" value="Login">
+    </form>
 
-      <?php if (isset($error)) echo "<p>$error</p>"; ?>
+    <?php if (isset($error)) echo "<p>$error</p>"; ?>
 
-      <div class="login-links">
-        <a href="reset_password.php">Forgot password?</a>
-        <a href="signup.php">New user?</a>
-      </div>
+    <div class="login-links">
+      <a href="reset_password.php">Forgot password?</a>
+      <a href="signup.php">New user?</a>
     </div>
   </div>
+</div>
 
 <?php include("include/footer.php"); ?>
+
 </body>
 </html>
