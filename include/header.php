@@ -40,7 +40,7 @@ if ($profilePic === '') {
             <a href="index_profile.php">My Profile</a>
             <a href="index_address.php">My Addresses</a>
             <a href="index_purchasehistory.php">Purchase History</a>
-            <a href="logout.php" class="logout">Log Out</a>
+            <a href="ask_logout.php" class="logout">Log Out</a>
           </div>
         </div>
       <?php endif; ?>
