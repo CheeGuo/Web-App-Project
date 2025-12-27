@@ -89,6 +89,16 @@ mysqli_stmt_bind_param(
   $date 
 );
 mysqli_stmt_execute($stmt);
+    $cart_id = "C" . str_pad($next, 4, "0", STR_PAD_LEFT);
+
+    $stmt = $conn->prepare("
+        INSERT INTO cart (cart_id, user_id)
+        VALUES (?, ?)
+    ");
+    $stmt->bind_param("ss", $cart_id, $user_id);
+    $stmt->execute();
+    $stmt->close();
+
 header("location:login.php");
 }else if($bool) {
   echo "
