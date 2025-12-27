@@ -108,12 +108,12 @@ $password_admin = password_hash("admin123",PASSWORD_DEFAULT);
 $i_users = "INSERT IGNORE INTO users
 (user_id, name, username, gender, email, password, phone, address, role,date_registered,profile_pic)
 VALUES
-('A0001','Admin','Admin','-','admin@gmail.com','$password_admin','-','-','admin','2024-01-01 10:00:00',''),
-('A0002','Emily Soo','Emily77','female','Emily77@gmail.com','$password','011-4571284','-','customer','2024-01-01 10:00:00',''),
-('A0003','Urkanish Ismail','urkanishmail','male','urkanishm@gmail.com','$password' ,'012-48963751','Lot 12, Taman Bukit Indah, 93350 Kuching, Sarawak','customer','2024-01-01 10:00:00',''),
-('A0004','Sarajohn Son','sarajohnson','male','smartboy@gmail.com','$password' ,NULL,'-','customer','2024-01-01 10:00:00',''),
-('A0005','Mikael Yow','mikael456','male','mikael123@gmail.com','$password' ,NULL,'No. 7, Jalan Kempas 1, Taman Kempas Baru, 81200 Johor Bahru, Johor','customer','2024-01-01 10:00:00',''),
-('A0006','May Historia','historiaMay','female','may1@gmail.com','$password' ,'016-7845554','24, Jalan Meranti 3/2, Taman Sri Muda, 40400 Shah Alam, Selangor','customer','2024-01-01 10:00:00','')";
+('A0000','Admin','Admin','-','admin@gmail.com','$password_admin','-','-','admin','2024-01-01 10:00:00',''),
+('A0001','Emily Soo','Emily77','female','Emily77@gmail.com','$password','011-4571284','-','customer','2024-01-01 10:00:00',''),
+('A0002','Urkanish Ismail','urkanishmail','male','urkanishm@gmail.com','$password' ,'012-48963751','Lot 12, Taman Bukit Indah, 93350 Kuching, Sarawak','customer','2024-01-01 10:00:00',''),
+('A0003','Sarajohn Son','sarajohnson','male','smartboy@gmail.com','$password' ,NULL,'-','customer','2024-01-01 10:00:00',''),
+('A0004','Mikael Yow','mikael456','male','mikael123@gmail.com','$password' ,NULL,'No. 7, Jalan Kempas 1, Taman Kempas Baru, 81200 Johor Bahru, Johor','customer','2024-01-01 10:00:00',''),
+('A0005','May Historia','historiaMay','female','may1@gmail.com','$password' ,'016-7845554','24, Jalan Meranti 3/2, Taman Sri Muda, 40400 Shah Alam, Selangor','customer','2024-01-01 10:00:00','')";
 
 
 $i_product = "INSERT IGNORE INTO product VALUES

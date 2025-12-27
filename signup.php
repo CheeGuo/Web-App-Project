@@ -64,9 +64,7 @@ $query = "SELECT COUNT(*) AS total FROM USERS";
 $result = mysqli_query($conn,$query);
 $row = mysqli_fetch_assoc($result);
 $num = $row["total"];
-
-$nextNumber = $num + 1;
-$user_id = "A" . str_pad($nextNumber, 4, "0", STR_PAD_LEFT);
+$user_id = "A" . str_pad($num, 4, "0", STR_PAD_LEFT);
 
 $query = "INSERT IGNORE INTO USERS
 (user_id,username,name,gender,email,password,phone,address,role,date_registered)
@@ -89,7 +87,7 @@ mysqli_stmt_bind_param(
   $date 
 );
 mysqli_stmt_execute($stmt);
-    $cart_id = "C" . str_pad($next, 4, "0", STR_PAD_LEFT);
+    $cart_id = "C" . str_pad($num, 4, "0", STR_PAD_LEFT);
 
     $stmt = $conn->prepare("
         INSERT INTO cart (cart_id, user_id)
