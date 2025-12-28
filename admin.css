@@ -167,7 +167,7 @@ h2 {
 }
 
 form {
-  display: flex;
+  /*display: flex;*/
   justify-content: center;
   align-items: center;
   gap: 12px;
@@ -485,4 +485,126 @@ footer {
   display: flex;
   justify-content: flex-end;
   padding-right: 60px;
+}
+
+/* product down page*/
+.pager-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 260px;
+  margin-left: auto;
+  margin-right: 60px;
+  font-size: 13px;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.pager {
+  width: 120px;
+
+  
+  color: #000;
+  background: #fff;
+}
+/* admin_edit_product*/
+
+.edit-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+    width: 100%;
+  max-width: 1100px;   /* control size here */
+  margin: 40px auto;   /* center horizontally */
+
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.edit-back {
+  font-size: 22px;
+  text-decoration: none;
+  color: #000;
+}
+
+.edit-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.edit-photo {
+  text-align: center;
+}
+
+.edit-photo img {
+  width: 90px;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.edit-photo label {
+  font-size: 12px;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.edit-photo input {
+  display: none;
+}
+
+/* ===== EDIT FORM ===== */
+
+.edit-form {
+    width: 100%;
+  max-width: 1100px;   /* control size here */
+  margin: 40px auto;   /* center horizontally */
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 10px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: none;
+  background: #e0e0e0;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+
+.form-action {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.done-btn {
+  padding: 8px 30px;
+  border-radius: 20px;
+  border: none;
+  background: #ffe45c;
+  font-weight: bold;
+  cursor: pointer;
 }

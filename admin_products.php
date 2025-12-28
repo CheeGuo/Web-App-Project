@@ -22,7 +22,7 @@ $result = mysqli_query($conn, $sql);
 </head>
 <body>
 
-<div class>
+<div class style="height:80px";>
     <div class="top-bar">
     <div class="left" style="align-items:flex-start">
         <a href="admin_index.php" class="back-btn"">←</a>
@@ -52,11 +52,10 @@ $result = mysqli_query($conn, $sql);
             <div class="id">ID: <?php echo $row['product_id']; ?></div>
             <div class="name"><?php echo $row['product_name']; ?></div>
             <div class="price"><?php echo number_format($row['price'], 2); ?> kr</div>
-            <div class="stock">Stock: <?php echo $row['stock']; ?></div>
         </div>
 
         <div class="actions">
-            <a href="edit_product_form.php?id=<?php echo $row['product_id']; ?>">✎</a>
+            <a href="admin_edit_product.php?id=<?php echo $row['product_id']; ?>">✎</a>
             <a href="delete_product.php?id=<?php echo $row['product_id']; ?>" onclick="return confirm('Delete this product?')">✕</a>
         </div>
 
@@ -65,10 +64,11 @@ $result = mysqli_query($conn, $sql);
 
 </div>
 <footer>
-<div class="pagination" style="align-items:center;">
-    <a href="#">← Previous</a>
-    <a href="#">Next →</a>
+<div class="pager-box">
+    <a style="text-align: right;" href="#">← Previous</a>
+    <a style="text-align: left;" href="#">Next →</a>
 </div>
+
 </footer>
 </body>
 </html>
