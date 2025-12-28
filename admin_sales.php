@@ -124,7 +124,7 @@ $result = mysqli_query($conn, $sql);
 </table>
 
 <div class="action-bar">
-<a href="admin_dashboard.php" class="back-btn">Back</a>
+<a href="admin_index.php" class="back-btn">Back</a>
 <a href="export_sales.php?filter=<?= $filter ?>&date=<?= $date ?>" class="csv-btn">Download CSV</a>
 </div>
 

@@ -3,7 +3,7 @@ include('include/admin_header.php');
 include('include/db.php');
 $memberResult = $conn->query("SELECT COUNT(*) AS total_members FROM users WHERE role = 'customer'");
 $memberRow = $memberResult->fetch_assoc();
-$totalMembers = $memberRow['total_members'] -1 ;
+$totalMembers = $memberRow['total_members']  ;
 
 $incomeResult = $conn->query("
     SELECT SUM(total_amount) AS total_income
