@@ -14,7 +14,7 @@ if ($sort === "price_asc") {
 }
 
 $sql = "SELECT * FROM product
-        WHERE category = 'Hobby and Leisure' and is_active=1
+        WHERE category = 'Hobby and Leisure' and is_active='1'
         AND product_name LIKE ?
         $orderBy";
 
@@ -49,17 +49,14 @@ $result = $stmt->get_result();
 </form>
 
 <div class="products">
-<?php while ($row = $result->fetch_assoc()) { ?>
+<?php while ($row = $result->fetch_assoc()): ?>
     <div class="product">
-        <a href="product_description.php?id=<?php echo $row['product_id']; ?>" class="product-link">
-            <img src="<?php echo $row['url']; ?>" alt="<?php echo htmlspecialchars($row['product_name']); ?>">
-            <p><?php echo htmlspecialchars($row['product_name']); ?></p>
-            <p class="price"><?php echo number_format($row['price'], 0); ?> kr</p>
-        </a>
+        <img src="<?= $row['url'] ?>">
+        <p><?= $row['product_name'] ?></p>
+        <p class="price"><?= number_format($row['price'], 0) ?> kr</p>
     </div>
-<?php } ?>
+<?php endwhile; ?>
 </div>
-
 
 </div>
 
