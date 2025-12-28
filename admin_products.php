@@ -36,9 +36,9 @@ $result = mysqli_query($conn, $sql);
     </div>
     <h2>Edit Product</h2>
 
-    <a href="add_product.php" class="add-btn">＋ Add Product</a>
+    <a href="add_product.php" class="add-btns">＋ Add Product</a>
     
-</div>
+    </div>
 </div>
 
 <div class="product-grid">

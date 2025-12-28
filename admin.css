@@ -367,11 +367,19 @@ td:nth-child(3) {
   gap: 20px;
 }
 /* keep add product on right */
-.add-btn {
+
+.add-btns {
+  display: inline-block;
+  padding: 6px 26px;
+  background: #fff;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
   flex-shrink: 0;
    white-space: nowrap;
 }
-
 
 /* ===== PRODUCT GRID STABLE ===== */
 
