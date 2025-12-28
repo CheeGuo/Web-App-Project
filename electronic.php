@@ -49,13 +49,15 @@ $result = $stmt->get_result();
 </form>
 
 <div class="products">
-<?php while ($row = $result->fetch_assoc()): ?>
+<?php while ($row = $result->fetch_assoc()) { ?>
     <div class="product">
-        <img src="<?= $row['url'] ?>">
-        <p><?= $row['product_name'] ?></p>
-        <p class="price"><?= number_format($row['price'], 0) ?> kr</p>
+        <a href="product_description.php?id=<?php echo $row['product_id']; ?>" class="product-link">
+            <img src="<?php echo $row['url']; ?>" alt="<?php echo htmlspecialchars($row['product_name']); ?>">
+            <p><?php echo htmlspecialchars($row['product_name']); ?></p>
+            <p class="price"><?php echo number_format($row['price'], 0); ?> kr</p>
+        </a>
     </div>
-<?php endwhile; ?>
+<?php } ?>
 </div>
 </div>
 
