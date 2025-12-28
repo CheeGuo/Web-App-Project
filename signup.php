@@ -24,7 +24,7 @@
     <label >Phone number</label>
     <input type="tel" name="phone" placeholder="Phone No" required pattern="[0-9]{10,11}">
     <label >Password</label>
-    <input type="password" name="password" placeholder="Password" required minlength="8">
+    <input type="password" name="password" placeholder="Password" required minlength="6" maxlength="8" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])\S{6,8}$" title="6-8 characters, 1 uppercase letter, 1 number, 1 special character, no spaces">
     <label >Date of Birth</label>
     <input type="date" name="registered_date" required>
   </div>
