@@ -8,12 +8,12 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-
 $stmt = $conn->prepare("
     SELECT username, email, name, gender, phone, date_registered, profile_pic
     FROM users
     WHERE user_id = ?
 ");
+
 $stmt->bind_param("s", $user_id);
 $stmt->execute();
 $stmt->bind_result($username, $email, $full_name, $gender, $phone, $created_at, $profile_pic);
@@ -33,20 +33,15 @@ if ($profile_pic == '') {
     <div class="profile-left">
       <a href="javascript:history.back()" class="back-btn">←</a>
       <h2>My Profile</h2>
-
       <div class="avatar-box">
         <img src="<?= $profile_pic ?>">
-        <a href="#" class="edit-photo">Edit Photo</a>
       </div>
     </div>
-
     <div class="profile-right">
-
       <div class="field">
         <label>Username:</label>
         <input type="text" value="<?= $username ?>" readonly>
       </div>
-
       <div class="field edit">
         <label>E-mail:</label>
         <input type="email" id="emailInput" value="<?= $email ?>" readonly>

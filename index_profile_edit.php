@@ -14,7 +14,7 @@ $stmt = $conn->prepare("
     FROM users
     WHERE user_id = ?
 ");
-$stmt->bind_param("i", $user_id);
+$stmt->bind_param("s", $user_id);
 $stmt->execute();
 $stmt->bind_result($username, $db_email, $full_name, $gender, $phone, $created_at, $profile_pic);
 $stmt->fetch();
@@ -112,7 +112,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <div class="avatar-box">
         <img src="<?= $profile_pic ?>">
-        <a href="#" class="edit-photo">Edit Photo</a>
       </div>
     </div>
 
