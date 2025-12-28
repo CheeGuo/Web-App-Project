@@ -5,7 +5,7 @@ include('include/db.php');
 
 $category = $_GET['category'] ?? '';
 
-$sql = "SELECT * FROM product";
+$sql = "SELECT * FROM product WHERE is_active = 1";
 if ($category !== '') {
     $sql .= " WHERE category = '$category'";
 }

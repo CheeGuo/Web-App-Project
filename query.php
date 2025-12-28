@@ -46,6 +46,7 @@ $product = "CREATE TABLE IF NOT EXISTS product (
   stock INT NOT NULL,
   url VARCHAR(255) NOT NULL ,
   description TEXT NOT NULL,
+  is_active BOOLEAN , 
   PRIMARY KEY (product_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
 
@@ -119,11 +120,11 @@ VALUES
 
 
 $i_product = "INSERT IGNORE INTO product VALUES
-('PRD-202504-1A7X','3-Wheel Electric Scooter','Vehicles',9998,99,'product_pic/scooter.png','A practical and stable 3-wheel electric scooter designed for daily commuting and leisure riding. Equipped with a powerful motor and a comfortable seat, this scooter offers excellent balance and safety, making it suitable for elderly users and those who prefer extra stability. Features include a sturdy steel frame, front basket for storage, smooth acceleration, and reliable braking system. Ideal for short-to-medium distance travel with minimal effort.'),
-('PRD-202504-2F9K','4WD Lamborghini Sian','Hobby and Leisure',2999,50,'product_pic/lambogini.png','A high-performance 4WD remote-controlled Lamborghini Sian designed for speed, durability, and realistic driving experience. This model features precision steering, powerful motors, and a sleek aerodynamic body inspired by the real Lamborghini Sian. Suitable for hobbyists and collectors, it delivers smooth handling on multiple surfaces and long-lasting playtime.'),
-('PRD-202504-5Y2M','Dinosaur Pleo','Hobby and Leisure',2999,24,'product_pic/dino.png','An interactive robotic dinosaur designed for entertainment and learning. Pleo responds to touch, sound, and movement, creating a lifelike companion experience. It can express emotions, learn behaviors over time, and interact with its environment. Perfect for children and technology enthusiasts who enjoy interactive robotic toys with personality.'),
-('PRD-202504-6P7V','R2D2','Hobby and Leisure',2798,68,'product_pic/R2D2.png','A collectible R2-D2 robot inspired by the iconic Star Wars universe. This model features authentic design details, sound effects, and movement functions that bring the character to life. Ideal for Star Wars fans, collectors, and hobbyists looking for a detailed and interactive display piece.'),
-('PRD-202504-7W5C','Star Wars Monopoly','Hobby and Leisure',798,34,'product_pic/monopoly.png','A special edition Monopoly board game themed around the Star Wars universe. Players can buy, trade, and conquer iconic locations from the franchise while enjoying classic Monopoly gameplay. Includes custom tokens, themed cards, and immersive artwork. Perfect for family game nights and Star Wars fans of all ages.')";
+('PRD-202504-1A7X','3-Wheel Electric Scooter','Vehicles',9998,99,'product_pic/scooter.png','A practical and stable 3-wheel electric scooter designed for daily commuting and leisure riding. Equipped with a powerful motor and a comfortable seat, this scooter offers excellent balance and safety, making it suitable for elderly users and those who prefer extra stability. Features include a sturdy steel frame, front basket for storage, smooth acceleration, and reliable braking system. Ideal for short-to-medium distance travel with minimal effort.','1'),
+('PRD-202504-2F9K','4WD Lamborghini Sian','Hobby and Leisure',2999,50,'product_pic/lambogini.png','A high-performance 4WD remote-controlled Lamborghini Sian designed for speed, durability, and realistic driving experience. This model features precision steering, powerful motors, and a sleek aerodynamic body inspired by the real Lamborghini Sian. Suitable for hobbyists and collectors, it delivers smooth handling on multiple surfaces and long-lasting playtime.','1'),
+('PRD-202504-5Y2M','Dinosaur Pleo','Hobby and Leisure',2999,24,'product_pic/dino.png','An interactive robotic dinosaur designed for entertainment and learning. Pleo responds to touch, sound, and movement, creating a lifelike companion experience. It can express emotions, learn behaviors over time, and interact with its environment. Perfect for children and technology enthusiasts who enjoy interactive robotic toys with personality.','1'),
+('PRD-202504-6P7V','R2D2','Hobby and Leisure',2798,68,'product_pic/R2D2.png','A collectible R2-D2 robot inspired by the iconic Star Wars universe. This model features authentic design details, sound effects, and movement functions that bring the character to life. Ideal for Star Wars fans, collectors, and hobbyists looking for a detailed and interactive display piece.','1'),
+('PRD-202504-7W5C','Star Wars Monopoly','Hobby and Leisure',798,34,'product_pic/monopoly.png','A special edition Monopoly board game themed around the Star Wars universe. Players can buy, trade, and conquer iconic locations from the franchise while enjoying classic Monopoly gameplay. Includes custom tokens, themed cards, and immersive artwork. Perfect for family game nights and Star Wars fans of all ages.','1')";
 
 $i_cart = "INSERT IGNORE INTO cart VALUES
 ('C0001','A0001'),
