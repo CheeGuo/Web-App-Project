@@ -1,15 +1,11 @@
 <?php
 include('include/admin_header.php');
 include('include/db.php');
-
-
 $category = $_GET['category'] ?? '';
-
 $sql = "SELECT * FROM product WHERE is_active = 1";
 if ($category !== '') {
-    $sql .= " WHERE category = '$category'";
+    $sql .= " AND category = '$category'";
 }
-
 $result = mysqli_query($conn, $sql);
 ?>
 
@@ -28,16 +24,18 @@ $result = mysqli_query($conn, $sql);
         <a href="admin_index.php" class="back-btn"">←</a>
         <form method="GET">
             <select name="category" onchange="this.form.submit()">
-                <option value="">Category</option>
                 <option value="Vehicles">Vehicles</option>
                 <option value="Hobby and Leisure">Hobby and Leisure</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Electronics Devices">Electronics Devices</option>
+                <option value="Robot">Robot</option>
+                <option value="Home Living">Hobby Living</option>
             </select>
         </form>
     </div>
     <h2>Edit Product</h2>
+   <a href="admin_add_product.php" class="add-btns" style="position: relative; z-index: 10;">＋ Add Product</a>
 
-    <a href="admin_add_product.php" class="add-btns">＋ Add Product</a>
-    
     </div>
 </div>
 
@@ -63,13 +61,6 @@ $result = mysqli_query($conn, $sql);
 <?php } ?>
 
 </div>
-<footer>
-<div class="pager-box">
-    <a style="text-align: right;" href="#">← Previous</a>
-    <a style="text-align: left;" href="#">Next →</a>
-</div>
-
-</footer>
 </body>
 </html>
 <?php include('include/footer.php'); ?>
