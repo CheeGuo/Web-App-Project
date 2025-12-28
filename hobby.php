@@ -14,7 +14,7 @@ if ($sort === "price_asc") {
 }
 
 $sql = "SELECT * FROM product
-        WHERE category = 'Hobby and Leisure'
+        WHERE category = 'Hobby and Leisure' and is_active=1
         AND product_name LIKE ?
         $orderBy";
 
