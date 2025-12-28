@@ -132,3 +132,5 @@ $result = mysqli_query($conn, $sql);
 
 </body>
 </html>
+
+<?php include('include/footer.php'); ?>

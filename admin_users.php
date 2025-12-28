@@ -1,7 +1,6 @@
 <?php
 include('include/admin_header.php');
 include('include/db.php');
-
 $start = $_GET['start'] ?? '';
 $end = $_GET['end'] ?? '';
 
@@ -59,3 +58,4 @@ $result = mysqli_query($conn, $sql);
 
 </body>
 </html>
+<?php include('include/footer.php'); ?>

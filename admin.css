@@ -11,14 +11,12 @@ body {
 
 .top-header {
   background: #dfffee;
-  height: 90px;
   display: flex;
   align-items: center;
 }
 
 .header-inner {
   width: 100%;
-  max-width: 1400px;
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -47,12 +45,6 @@ body {
   font-weight: bold;
 }
 
-.admin-wrapper {
-  display: flex;
-  max-width: 1400px;
-  margin: 20px auto;
-  gap: 20px;
-}
 
 .admin-sidebar {
   width: 220px;
@@ -94,6 +86,7 @@ body {
 }
 
 .stat-cards {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -340,4 +333,148 @@ td:nth-child(3) {
   background: #e63946;
   color: #fff;
   text-decoration: none;
+}
+
+/* product */
+/* ===== TOP BAR FIX (below header) ===== */
+
+.top-bar {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+/* center Edit Product text */
+.top-bar h2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* keep back + category on left */
+.top-bar .left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+.admin-wrapper {
+  display: flex;
+  max-width: 1400px;
+  margin: 20px auto;
+  gap: 20px;
+}
+/* keep add product on right */
+.add-btn {
+  flex-shrink: 0;
+   white-space: nowrap;
+}
+
+
+/* ===== PRODUCT GRID STABLE ===== */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px 80px;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.product-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 150px;
+}
+
+.product-card img {
+  width: 180px;
+  height: 120px;
+  object-fit: contain;
+  display: block;
+}
+
+.product-card .info {
+  width: 260px;
+  min-height: 120px;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  border-radius: 6px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* ===== EDIT / DELETE ICON FIX ===== */
+
+.product-card .actions {
+  position: absolute;
+  top: -18px;
+  right: 10px;
+  display: flex;
+  gap: 12px;
+}
+
+
+/* ===== PAGINATION AT BOTTOM RIGHT ===== */
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 100px;
+  padding-right: 60px;
+  font-size: 13px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #000;
+  margin-left: 30px;
+}
+
+header {
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.top-bar .left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-bar h2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+footer {
+  width: 100%;
+  margin-top: 80px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 60px;
 }

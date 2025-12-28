@@ -76,3 +76,6 @@ $totalSales = $salesRow['total_sales'] ?? 0;
   </main>
 
 </div>
+
+
+<?php include('include/footer.php');
