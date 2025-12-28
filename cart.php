@@ -12,11 +12,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'];
 
     if ($action === 'inc') {
-        $sql = "UPDATE cart_item SET quantity = quantity + 1 WHERE cartitem_id = ?";
+        $sql = "
+        UPDATE cart_item ci
+        JOIN product p ON ci.product_id = p.product_id
+        SET ci.quantity = ci.quantity + 1
+        WHERE ci.cartitem_id = ?
+        AND ci.quantity < p.stock
+        ";
     } elseif ($action === 'dec') {
-        $sql = "UPDATE cart_item SET quantity = GREATEST(quantity - 1, 1) WHERE cartitem_id = ?";
+        $sql = "
+        UPDATE cart_item
+        SET quantity = GREATEST(quantity - 1, 1)
+        WHERE cartitem_id = ?
+        ";
     } elseif ($action === 'delete') {
-        $sql = "DELETE FROM cart_item WHERE cartitem_id = ?";
+        $sql = "
+        DELETE FROM cart_item
+        WHERE cartitem_id = ?
+        ";
     }
 
     $stmt = $conn->prepare($sql);
@@ -107,6 +120,7 @@ Total Cost (nok): <strong><?= number_format($total,2) ?> kr</strong>
     <a href="index.php" class="cart-btn">Continue Shopping</a>
     <a href="checkout.php" class="cart-btn checkout">Check Out</a>
 </div>
+
 </main>
 
 <?php include('include/footer.php'); ?>
