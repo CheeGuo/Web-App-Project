@@ -103,7 +103,10 @@ $total += $subtotal;
 <div class="cart-total">
 Total Cost (nok): <strong><?= number_format($total,2) ?> kr</strong>
 </div>
-
+<div class="cart-actions">
+    <a href="index.php" class="cart-btn">Continue Shopping</a>
+    <a href="checkout.php" class="cart-btn checkout">Check Out</a>
+</div>
 </main>
 
 <?php include('include/footer.php'); ?>

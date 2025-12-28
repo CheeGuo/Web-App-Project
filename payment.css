@@ -1,0 +1,95 @@
+.checkout-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.checkout-box {
+  background: #e6e6e6;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.checkout-right {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.review-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.review-table th,
+.review-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+
+.summary {
+  background: #dfffee;
+  padding: 12px;
+}
+
+.summary span {
+  float: right;
+}
+
+.checkout-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn {
+  padding: 8px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.cancel {
+  background: #e53935;
+  color: #fff;
+}
+
+.btn.confirm {
+  background: #0f9d58;
+  color: #fff;
+}
+
+.address-page {
+  max-width: 600px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.address-box {
+  border: 1px solid #444;
+  padding: 30px;
+  text-align: left;
+}
+
+.address-item {
+  display: flex;
+  gap: 12px;
+}
+
+.address-item label {
+  cursor: pointer;
+  line-height: 1.6;
+}
+
+.add-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 6px 26px;
+  border-radius: 20px;
+  background: #c9ffe8;
+  border: none;
+  cursor: pointer;
+}

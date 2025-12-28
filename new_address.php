@@ -13,10 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $address = $_POST['address'];
-
-    $sql = "UPDATE users SET name=?, phone=?, address=? WHERE user_id=?";
+    $address_input = $name . " | " . $phone . " " . $address;
+    $sql = "UPDATE users SET address=? WHERE user_id=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $name, $phone, $address, $user_id);
+    $stmt->bind_param("ss", $address_input,$user_id);
     $stmt->execute();
 
     header("Location: index_address.php");
