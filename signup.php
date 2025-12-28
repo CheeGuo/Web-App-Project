@@ -64,7 +64,7 @@ $row = mysqli_fetch_assoc($result);
 $num = $row["total"];
 $user_id = "A" . str_pad($num, 4, "0", STR_PAD_LEFT);
 
-$query = "INSERT IGNORE INTO USERS
+$query = "INSERT INTO USERS
 (user_id,username,name,gender,email,password,phone,address,role,date_registered)
 VALUES (?, ? ,?, ?, ?, ?, ?, ?, ?,? )";
 
