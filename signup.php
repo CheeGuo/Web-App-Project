@@ -25,8 +25,6 @@
     <input type="tel" name="phone" placeholder="Phone No" required pattern="[0-9]{10,11}">
     <label >Password</label>
     <input type="password" name="password" placeholder="Password" required minlength="6" maxlength="8" pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])\S{6,8}$" title="6-8 characters, 1 uppercase letter, 1 number, 1 special character, no spaces">
-    <label >Date of Birth</label>
-    <input type="date" name="registered_date" required>
   </div>
 
   <label class="gender-option">
@@ -48,7 +46,7 @@
 include("include/footer.php"); 
 include("include/db.php");
 $bool = False ; 
-if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["fullname"]) && isset($_POST["gender"]) && isset($_POST["phone"]) &&isset($_POST["password"])&&isset($_POST["registered_date"])){
+if(isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["fullname"]) && isset($_POST["gender"]) && isset($_POST["phone"]) &&isset($_POST["password"])){
 $bool = True ; 
 $username = $_POST["username"];
 $email = $_POST["email"];
@@ -56,7 +54,7 @@ $fullname = $_POST["fullname"];
 $gender = $_POST["gender"];
 $phone = $_POST["phone"];
 $pass = $_POST["password"];
-$date =$_POST["registered_date"];
+$date = date("Y-m-d H:i:s");
 $role = "customer";
 
 $pass = password_hash($pass,PASSWORD_DEFAULT);
