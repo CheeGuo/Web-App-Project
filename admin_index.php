@@ -78,19 +78,17 @@ while ($r = $trendResult->fetch_assoc()) {
 </div>
 
 <div class="chart-section">
-  <div class="chart-box">
-    <h3>Income Chart</h3>
-    <canvas id="incomeChart"></canvas>
+  <div class="chart-box wide">
+    <div class="chart-header">
+      <h3>Income Chart</h3>
+    </div>
+    <canvas id="incomeChart" height="120"></canvas>
   </div>
 
   <div class="chart-box">
     <h3>Sales Summary (Last 6 months)</h3>
-    <canvas id="salesChart"></canvas>
+    <canvas id="salesChart" height="120"></canvas>
   </div>
-</div>
-
-<div class="report-area">
-  <button class="download-btn">Download Report</button>
 </div>
 
 </main>
