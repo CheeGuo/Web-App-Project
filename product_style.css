@@ -193,3 +193,42 @@ body {
   cursor: pointer;
   font-size: 14px;
 }
+
+/* add to cart function ( product description ) */
+.product-detail-container {
+  max-width: 1100px;
+  margin: 80px auto;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.product-left {
+  flex: 0.8;
+}
+
+.product-left img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  display: block;
+}
+
+.product-right {
+  flex: 1;
+}
+
+.product-right h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.product-right h2 {
+  color: #18a558;
+  margin-bottom: 16px;
+}
+
+.product-right p {
+  font-size: 15px;
+  line-height: 1.7;
+}
