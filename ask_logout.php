@@ -14,7 +14,7 @@
     </div>
 <div style="display:flex; flex-direction:column; gap:16px; align-items:center;">
   <a href="logout.php" style =  outline: none; class="login-btn">Yes</a> 
-  <a href="index.php" style =  outline: none; class="login-btn">No</a>
+  <a href="javascript:history.back()" style =  outline: none; class="login-btn">No</a>
 </div>
   </div>
 </div>

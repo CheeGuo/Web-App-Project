@@ -19,9 +19,12 @@ if ($profilePic === '') {
     </div>
 
     <div class="search-area">
-      <input type="text" placeholder="Search">
-      <span class="search-icon">🔍</span>
-    </div>
+  <form action="search.php" method="get">
+    <input type="text" name="keyword" placeholder="Search" required>
+    <button type="submit" class="search-icon">🔍</button>
+  </form>
+</div>
+
 
     <div class="action-area">
       <a href="cart.php">
