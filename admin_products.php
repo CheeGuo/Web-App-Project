@@ -36,7 +36,7 @@ $result = mysqli_query($conn, $sql);
     </div>
     <h2>Edit Product</h2>
 
-    <a href="add_product.php" class="add-btns">＋ Add Product</a>
+    <a href="admin_add_product.php" class="add-btns">＋ Add Product</a>
     
     </div>
 </div>
