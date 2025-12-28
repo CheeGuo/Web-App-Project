@@ -12,7 +12,7 @@ $username = $_SESSION['username'] ?? '';
   <div class="header-inner">
 
     <div class="logo-area">
-      <a href="index.php">
+      <a href="admin_index.php">
         <img src="pic/arngren logo.png" alt="Arngren Logo">
       </a>
     </div>
