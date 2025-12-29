@@ -480,5 +480,18 @@ footer img {
   background: #ffe44d;
 }
 
-
-
+.profile-select {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  appearance: auto;
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+}
+.dropdown-menu {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}

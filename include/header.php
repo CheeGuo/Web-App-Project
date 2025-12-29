@@ -24,30 +24,30 @@ if ($profilePic === '') {
     <button type="submit" class="search-icon">🔍</button>
   </form>
 </div>
-
-
     <div class="action-area">
       <a href="cart.php">
       <button style="  width: 42px;height: 42px;" >🛒</button>
       </a>
-  
-
       <?php if (!isset($_SESSION['user_id'])): ?>
         <a href="login.php" class="login-link">LOG IN / SIGN UP</a>
       <?php else: ?>
         <div class="profile-dropdown">
           <div class="profile-trigger">
-            <img src="<?= $profilePic ?>" class="profile-pic">
-            <span class="username"><?= $_SESSION['username'] ?></span>
-            <span class="arrow">▼</span>
-          </div>
+  <img src="<?= $profilePic ?>" class="profile-pic">
+  <span class="username"><?= $_SESSION['username'] ?></span>
 
-          <div class="dropdown-menu">
-            <a href="index_profile.php">My Profile</a>
-            <a href="index_address.php">My Addresses</a>
-            <a href="index_purchasehistory.php">Purchase History</a>
-            <a href="ask_logout.php" class="logout">Log Out</a>
-          </div>
+  <div class="dropdown-menu">
+    <select class="profile-select" onchange="location = this.value;">
+      <option value="" selected disabled></option>
+      <option value="index_profile.php">My Profile</option>
+      <option value="index_address.php">My Addresses</option>
+      <option value="index_purchasehistory.php">Purchase History</option>
+      <option value="ask_logout.php">Log Out</option>
+    </select>
+  </div>
+</div>
+          
+     
         </div>
       <?php endif; ?>
     </div>

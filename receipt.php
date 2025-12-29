@@ -2,6 +2,54 @@
 include('include/db.php');
 include('include/header.php');
 
+$data = [
+    "sender" => [
+        "name" => "Arngren Store",
+        "email" => "cheeguo11@gmail.com"
+    ],
+    "to" => [
+        [
+            "email" => $user['email'],
+            "name" => $user['name']
+        ]
+    ],
+    "subject" => "Your Order Has Been Confirmed",
+    "htmlContent" => "
+        <h2>Thank you for your purchase!</h2>
+        <p>Hi {$user['name']},</p>
+
+        <p>You have successfully placed an order with <strong>Arngren</strong>.</p>
+
+        <p><strong>Order ID:</strong> {$payment['order_id']}<br>
+        <strong>Payment Method:</strong> {$payment['payment_method']}<br>
+        <strong>Date:</strong> {$payment['payment_date']}</p>
+
+        <p><strong>Shipping Method:</strong> Air Shipping</p>
+
+        <p><strong>Total Paid:</strong> RM " . number_format($total_rm, 2) . "</p>
+
+        <p>Your items will be processed and shipped shortly.</p>
+
+        <p>If you have any questions, feel free to reply to this email.</p>
+
+        <br>
+        <p>Best regards,<br>
+        Arngren Support Team</p>
+    "
+];
+
+$ch = curl_init("https://api.brevo.com/v3/smtp/email");
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "accept: application/json",
+    "api-key: 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",
+    "content-type: application/json"
+]);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_exec($ch);
+curl_close($ch);
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -80,7 +128,6 @@ $total_rm = $payment['total_amount'] + $shipping_fee;
   <p class="receipt-subtitle">Thank you for buying, your order has been placed.</p>
 
   <div class="receipt-box">
-
     <!-- LEFT -->
     <div class="receipt-left">
       <p><strong>Order ID</strong><br><?= htmlspecialchars($payment['order_id']) ?></p>
