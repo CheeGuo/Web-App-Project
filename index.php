@@ -9,12 +9,9 @@
 
 <body>
   <main class="index-main">
-    <p style="text-align:center ;
-              font-weight: bold ;
-              font-size : 20px ; 
-              ">Categories</p>
-  <section id="feature" class="feature">
+    <p style="text-align:center ;font-weight: bold ; font-size : 30px ; padding-top: 20px;">Categories</p>
 
+  <section id="feature" class="feature">
     <a href="vehicles.php" class="fe-link">
       <div class="fe-box">
         <img src="pic/category-car.png">

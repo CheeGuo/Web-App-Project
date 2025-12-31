@@ -5,23 +5,25 @@
   font-family: Arial, sans-serif;
 }
 
+.full-height { 
+  height: 100vh; 
+  width: 100%;
+}
+
 html,
 body {
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-
 /* ================= HEADER ================= */
-
 .top-header {
   height: 90px;
   background: #dfffee;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: visible
 }
 
 .header-inner {
@@ -83,8 +85,77 @@ body {
   font-size: 18px;
 }
 
-/* ================= LOGIN PAGE ================= */
+/* ================= PROFILE SECTION ================= */
+.profile-dropdown {
+  display: inline-block;
+  position: relative;
+}
 
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.profile-pic {
+  width: 60px;
+  height: 60px;
+  border: none;
+  object-fit: cover;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 30px;
+  color: black;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 48px;
+  background: #43e0b1;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  z-index: 10;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+
+.profile-dropdown:active .dropdown-menu{
+  display: block;
+}
+
+.dropdown-toggle { 
+border: none;
+background: transparent;  
+outline: none; 
+cursor: pointer;
+font-size: 20px;
+}
+
+.profile-dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.profile-dropdown-list li a {
+  display: block;
+  padding: 12px 24px;
+  color: #222;
+  text-decoration: none;
+  transition: background 0.2s;
+  font-size: 16px;
+}
+
+.profile-dropdown-list li a:hover {
+  background: #f0f0f0;
+}
+
+/* ================= LOGIN PAGE ================= */
 .login {
   background-color: antiquewhite;
   height: 100%;
@@ -95,10 +166,13 @@ body.login {
   display: flex;
   flex-direction: column;
   background: #dfffee;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-container {
   height : 100%;
+  width: 30%;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -148,7 +222,8 @@ body.login {
   width: 120px;
   height: 38px;
   border-radius: 25px;
-  border: none;
+  border: none; 
+  align-items: center;
   background: #fff176;
   font-weight: bold;
   cursor: pointer;
@@ -156,6 +231,10 @@ body.login {
 
 .login-btn:hover {
   background: #ffe44d;
+}
+
+button {
+  outline: none;
 }
 
 .registeredPassword {
@@ -172,32 +251,38 @@ body.login {
 }
 
 /* ================= FEATURE / CATEGORY ================= */
-
 #feature {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1300px;
-  max-height: 180px;
-  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px 40px; 
+  justify-items: center;
+  align-items: start;
+  max-width: 1100px;
+  margin: 40px auto 60px auto;
 }
 
 #feature .fe-box {
   width: 180px;
   height: 180px;
   text-align: center;
-  padding: 25px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #feature .fe-box img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+}
+.fe-link {
+  text-decoration: none;
+  color: inherit; 
+  font-size: 30px;
 }
 
 /* ================= MAIN LAYOUT ================= */
-
 .main-content {
   flex: 1;
 }
@@ -206,17 +291,6 @@ body.login {
   flex: 1;
 }
 
-/* ================= FOOTER ================= */
-footer {
-  margin-top : auto ; 
-  overflow: hidden;
-}
-
-footer img {
-  margin-top : auto ; 
-  width: 100%;
-  display: block;
-}
 .promo-hot {
   max-width: 1300px;
   margin: 40px auto;
@@ -273,6 +347,17 @@ footer img {
 .hot-card span {
   color: #1aa37a;
   font-weight: bold;
+}
+/* ================= FOOTER ================= */
+footer {
+  margin-top : auto ; 
+  overflow: hidden;
+}
+
+footer img {
+  margin-top : auto ; 
+  width: 100%;
+  display: block;
 }
 .footer-info {
   margin: 0 auto;
@@ -335,7 +420,7 @@ footer img {
 .input_form label{
   text-align : left ; 
 }
-/* profile setting */
+
 .profile-page {
   background: #fff;
   padding: 60px 0;
@@ -358,7 +443,6 @@ footer img {
   grid-template-columns: 280px 1fr;
   column-gap: 40px;
 }
-
 
 .profile-left h2 {
   font-size: 28px;
@@ -429,7 +513,7 @@ footer img {
   cursor: pointer;
 }
 
-/* cart item */ 
+/* ================= CART PAGE ================= */
 .cart-page {
   max-width: 1100px;
   margin: 40px auto;
@@ -478,20 +562,4 @@ footer img {
 
 .cart-btn.checkout {
   background: #ffe44d;
-}
-
-.profile-select {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  outline: none;
-  appearance: auto;
-  -webkit-appearance: auto;
-  -moz-appearance: auto;
-}
-.dropdown-menu {
-  display: inline-block;
-  transition: transform 0.2s ease;
 }

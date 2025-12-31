@@ -52,7 +52,8 @@ $result = $stmt->get_result();
 <?php while ($row = $result->fetch_assoc()) { ?>
     <div class="product">
         <a href="product_description.php?id=<?php echo $row['product_id']; ?>" class="product-link">
-            <img src="<?php echo $row['url']; ?>" alt="<?php echo htmlspecialchars($row['product_name']); ?>">
+            <img src="product_pic/<?php echo htmlspecialchars($row['url']); ?>" 
+                 alt="<?php echo htmlspecialchars($row['product_name']); ?>">
             <p><?php echo htmlspecialchars($row['product_name']); ?></p>
             <p class="price"><?php echo number_format($row['price'], 0); ?> kr</p>
         </a>

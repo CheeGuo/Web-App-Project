@@ -18,5 +18,5 @@
             <p>Mob: 47-92060873</p>
         </div>
     </section>
-    <img src="pic/footer.png" alt="Footer Image">
+    <img src="pic/footer.gif" alt="Footer Gif">
 </footer>

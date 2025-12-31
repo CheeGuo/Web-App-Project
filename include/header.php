@@ -4,11 +4,12 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 $profilePic = $_SESSION['profile_pic'] ?? '';
+$username = $_SESSION['username'] ?? '';
 if ($profilePic === '') {
     $profilePic = 'pic/default-avatar.png';
 }
 ?>
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 <header class="top-header">
   <div class="header-inner">
 
@@ -19,12 +20,12 @@ if ($profilePic === '') {
     </div>
 
     <div class="search-area">
-  <form action="search.php" method="get">
+    <form action="search.php" method="get">
     <input type="text" name="keyword" placeholder="Search" required>
-    <button type="submit" class="search-icon">🔍</button>
-  </form>
-</div>
-    <div class="action-area">
+    <button type="submit" class="search-icon">&#128269;</button>
+    </form>
+  </div>
+  <div class="action-area">
       <a href="cart.php">
       <button style="  width: 42px;height: 42px;" >🛒</button>
       </a>
@@ -33,18 +34,36 @@ if ($profilePic === '') {
       <?php else: ?>
         <div class="profile-dropdown">
           <div class="profile-trigger">
-  <img src="<?= $profilePic ?>" class="profile-pic">
-  <span class="username"><?= $_SESSION['username'] ?></span>
+          <img src="<?= htmlspecialchars($profilePic) ?>" class="profile-pic" alt="Profile Picture">
+          <span class="username"><?= htmlspecialchars($username) ?></span>
+          <button class="dropdown-toggle" type="button"onclick="toggleDropdown(event)">▼</button>
+          <script>
+          function toggleDropdown(event) {
+              event.stopPropagation(); // Prevents the event from propagating to other elements
+              
+              const dropdownMenu = document.querySelector('.dropdown-menu');
+              const isVisible = dropdownMenu.style.display === 'block';
+              dropdownMenu.style.display = isVisible ? 'none' : 'block';
+          }
 
-  <div class="dropdown-menu">
-    <select class="profile-select" onchange="location = this.value;">
-      <option value="" selected disabled></option>
-      <option value="index_profile.php">My Profile</option>
-      <option value="index_address.php">My Addresses</option>
-      <option value="index_purchasehistory.php">Purchase History</option>
-      <option value="ask_logout.php">Log Out</option>
-    </select>
-  </div>
+          // Close dropdown when clicking outside
+          window.onclick = function(event) {
+              const dropdownMenu = document.querySelector('.dropdown-menu');
+              
+              if (!event.target.matches('.profile-dropdown') && !event.target.matches('.profile-trigger')) {
+                  dropdownMenu.style.display = 'none'; // Close dropdown
+              }
+          };
+          </script>
+
+    <div class="dropdown-menu">
+            <ul class="profile-dropdown-list">
+              <li><a href="index_profile.php">My Profile</a></li>
+              <li><a href="index_address.php">My Addresses</a></li>
+              <li><a href="index_purchasehistory.php">Purchase History</a></li>
+              <li><a href="ask_logout.php">Log Out</a></li>
+            </ul>
+    </div>
 </div>
           
      

@@ -7,17 +7,15 @@
 </head>
 <body class="login">
     <div class="login-container">
-  <div class="login-card">
+    <div class="login-card">
     <div class="login-title">
-      <img src="pic/arngren logo.png">
+      <img src="pic/arngren logo.png" alt="Arngren Logo">
       <span>Do you wish to logout?</span>
     </div>
-<div style="display:flex; flex-direction:column; gap:16px; align-items:center;">
-  <a href="logout.php" style =  outline: none; class="login-btn">Yes</a> 
-  <a href="javascript:history.back()" style =  outline: none; class="login-btn">No</a>
-</div>
-  </div>
-</div>
+      <button onclick="window.location.href='logout.php';" class="login-btn" style="outline: none;">Yes</button>
+      <button onclick="javascript:history.back();" class="login-btn" style="outline: none;">No</button>
+    </div>
+    </div>
 </body>
 </html>
 <?php

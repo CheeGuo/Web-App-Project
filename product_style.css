@@ -1,7 +1,7 @@
 .product-page .products {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 60px 40px;
+    gap: 50px 20px;
     padding: 40px 80px;
     justify-items: center;
 }
@@ -23,7 +23,7 @@
 }
 
 .product-page .price {
-    color: #19b56f;
+    color: #777777;
     font-weight: bold;
 }
 

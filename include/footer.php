@@ -1,3 +1,3 @@
 <footer>
-    <img src="pic/footer.png" alt="Footer Image">
+    <img src="pic/footer.gif" alt="Footer Gif">
 </footer>
